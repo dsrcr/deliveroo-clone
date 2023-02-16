@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TailwindProvider } from 'tailwindcss-react-native';
+import HomeScreen from './screens/HomeScreen';
+
+/**
+ * The App function is the entry point to our application.
+ * It renders a NavigationContainer component, which is used for routing and navigation.
+ * The NavigationContainer contains a StackNavigator, which is used to render screens in our app.
+ * 
+ * @return A react element (the <navigationcontainer />).
+ * 
+ * @doc-author Trelent
+ */
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <TailwindProvider>
+        <Stack.Navigator>
+          <Stack.Screen component={HomeScreen} name="Home" />
+        </Stack.Navigator>
+      </TailwindProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
