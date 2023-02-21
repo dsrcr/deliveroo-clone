@@ -21,7 +21,7 @@ export default function App() {
       <TailwindProvider>
         <Stack.Navigator>
           <Stack.Screen component={HomeScreen} name="Home" />
-          <Stack.Screen component={RestaurantScreen} name="Home" />
+          <Stack.Screen component={RestaurantScreen} name="Restaurant" />
         </Stack.Navigator>
       </TailwindProvider>
     </NavigationContainer>
