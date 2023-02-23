@@ -11,6 +11,44 @@ import CategoryCard from "./CategoryCard";
  */
 
 export default function Categories() {
+  const cards = [
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi1",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi2",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi3",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi4",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi5",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi6",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi7",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi8",
+    },
+    {
+      imgUrl: "https://links.papareact.com/gn7",
+      title: "Sushi9",
+    },
+  ];
   return (
     <ScrollView
       horizontal
@@ -20,14 +58,13 @@ export default function Categories() {
         paddingTop: 10,
       }}
     >
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Sushi" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing2" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing3" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing4" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing5" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing6" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing7" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="Testing7" />
+      {cards.map((card) => (
+        <CategoryCard
+          key={card.title}
+          imgUrl={card.imgUrl}
+          title={card.title}
+        />
+      ))}
     </ScrollView>
   );
 }
