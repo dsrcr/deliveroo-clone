@@ -1,5 +1,7 @@
+import { useSyncExternalStore } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
+import { useSelector } from "react-redux";
 import RestaurantCard from "./RestaurantCard";
 
 /**
@@ -21,7 +23,8 @@ export default function FeaturedRow({
   description,
   featuredCategory,
 }) {
-  return (
+    const restaurantCards = useSelector((state) => state.restaurants.restaurantCards )
+    return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
         <Text className="font-bold text-lg">{title}</Text>
@@ -36,30 +39,23 @@ export default function FeaturedRow({
         showsHorizontalScrollIndicator={false}
         className="pt-4"
       >
-        <RestaurantCard
-          id={1}
-          imgUrl={"https://links.papareact.com/gn7"}
-          title="Sushi"
-          rating={5}
-          genre="japaneese"
-          address={"address"}
-          short_description="shortdesc"
-          dishes={"dishes"}
-          long="long"
-          lat={"lat"}
-        />
-        <RestaurantCard
-          id={1}
-          imgUrl={"https://links.papareact.com/gn7"}
-          title="Sushi"
-          rating={5}
-          genre="japaneese"
-          address={"address"}
-          short_description="shortdesc"
-          dishes={"dishes"}
-          long="long"
-          lat={"lat"}
-        />
+        {
+            restaurantCards.map((restaurant) => (
+                <RestaurantCard 
+                    key={restaurant.id} 
+                    id={restaurant.id} 
+                    imgUrl={restaurant.imgUrl}
+                    title={restaurant.title}
+                    rating={restaurant.rating}
+                    genre={restaurant.genre}
+                    address={restaurant.address}
+                    short_description={restaurant.short_description}
+                    dishes={restaurant.dishes}
+                    long={restaurant.long}
+                    lat={restaurant.lat}
+                />
+            ))
+        }
       </ScrollView>
     </View>
   );

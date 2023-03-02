@@ -64,9 +64,7 @@ export default function HomeScreen() {
       </View>
       <ScrollView className="bg-gray-100" contentContainerStyle>
         <Categories />
-        {
-
-        }
+        {}
         <FeaturedRow
           id={123}
           title="Featured"
